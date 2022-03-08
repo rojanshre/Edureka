@@ -1,0 +1,104 @@
+ log
+        filter 50
+            default-action forward
+            entry 10
+                action drop
+                description "suppress vRtrMplsResignalTimerExpired"
+                match
+                    application eq "mpls"
+                    number eq 2024
+                exit
+            exit
+            entry 20
+                action drop
+                description "suppress tmnxLogFileDeleted"
+                match
+                    application eq "logger"
+                    number eq 2009
+                exit
+            exit
+	exit
+        filter 51
+            default-action forward
+            entry 10
+                action drop
+                match
+                    application eq "mpls"
+                    number eq 2024
+                exit
+            exit
+            entry 20
+                action drop
+                match
+                    application eq "logger"
+                    number eq 2009
+                exit
+            exit
+            entry 30
+                action drop
+                match
+                    application eq "svcmgr"
+                    number eq 2103
+                exit
+            exit
+            entry 40
+                action drop
+                match
+                    application eq "svcmgr"
+                    number eq 2128
+                exit
+            exit
+            entry 50
+                action drop
+                match
+                    application eq "svcmgr"
+                    number eq 2203
+                exit
+            exit
+            entry 60
+                action drop
+                match
+                    application eq "svcmgr"
+                    number eq 2210
+                exit
+            exit
+            entry 70
+                action drop
+                match
+                    application eq "system"
+                    number eq 2006
+                exit
+            exit
+            entry 80
+                action drop
+                match
+                    application eq "system"
+                    number eq 2007
+                exit
+            exit
+            entry 90
+                action drop
+                match
+                    application eq "system"
+                    number eq 2008
+                exit
+            exit
+            entry 100
+                action drop
+                match
+                    application eq "system"
+                    number eq 2052
+                exit
+            exit
+            entry 110
+                action drop
+                match
+                    application eq "system"
+                    number eq 2053
+                exit
+            exit
+	exit
+        log-id 98
+            filter 50
+	exit
+exit
