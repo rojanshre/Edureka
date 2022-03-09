@@ -2,7 +2,7 @@
         filter 50
             default-action forward
             entry 10
-                action drop
+                action accept
                 description "suppress vRtrMplsResignalTimerExpired"
                 match
                     application eq "mpls"
