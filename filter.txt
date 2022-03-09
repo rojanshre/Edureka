@@ -10,7 +10,7 @@
                 exit
             exit
             entry 20
-                action drop
+                action accept
                 description "suppress tmnxLogFileDeleted"
                 match
                     application eq "logger"
